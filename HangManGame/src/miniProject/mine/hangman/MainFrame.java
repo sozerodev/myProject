@@ -21,8 +21,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
+import miniProject.mine.demo.PlayPanel;
+
 public class MainFrame extends JFrame {
-	private JPanel panel = new JPanel();
+	private JPanel panel;
 	private boolean check;
 	private JButton btnStart; // startGame()메소드를 사용하기위해 필드변수로.
 	
@@ -35,7 +37,7 @@ public class MainFrame extends JFrame {
 		
 		getContentPane().setLayout(null);
 		
-//		JPanel panel = new JPanel();  
+		panel = new JPanel();  
 		panel.setFont(new Font("Press Start K", Font.PLAIN, 20)); // 폰트 설정 
 		panel.setBounds(0, 0, 780, 650);
 		getContentPane().add(panel);
@@ -52,7 +54,7 @@ public class MainFrame extends JFrame {
 		userNameInput.addMouseListener(new MouseAdapter() {   // 입력창을 클릭하면 디폴트로 입력된 글자들을 싹 사라지게 해주는 코드 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				check = true;
+//				check = true;
 				userNameInput.setText("");
 			}
 		});
@@ -68,24 +70,19 @@ public class MainFrame extends JFrame {
 		JLabel msg = new JLabel("Input your name!");
 		msg.setFont(new Font("Press Start K", Font.BOLD, 25));
 	
-		btnStart.addMouseListener(new MouseAdapter() {
+		btnStart.addActionListener(new ActionListener() {
 			
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (check == false) {
-					btnStart.addActionListener(new ActionListener() {
-						
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							JOptionPane.showMessageDialog(null, msg, "Name yourself!!", JOptionPane.ERROR_MESSAGE);
-							
-						}
-					});
+			public void actionPerformed(ActionEvent e) {
+				if(userNameInput.getText().equals(">>Name Your Self<<") || userNameInput.getText().equals("")) {
+//				if (check == false) {
+					JOptionPane.showMessageDialog(null, msg, "Name yourself!!", JOptionPane.ERROR_MESSAGE);
+					
 					System.out.println("false인 경우 ");
 				} else { // nameChk가 true인 경우 
 					// 버튼 클릭 시 패널 교체 
-					startGame();
 					System.out.println("true인 경우 ");
+					startGame();
 				}
 			}
 			
@@ -128,15 +125,18 @@ public class MainFrame extends JFrame {
 		this.remove(panel);
 		
 //		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
-		panel = new PlayPanel();	// PlayPanel로 전환. 
+		panel = new miniProject.mine.hangman.PlayPanel();	// PlayPanel로 전환. 
 		
 //		btnStart.addMouseListener(new MouseAdapter() {
+//			
 //			@Override
 //			public void mouseClicked(MouseEvent e) {
-//				// 버튼 클릭 시 패널 교체 
+//				// 마우스 클릭 시 패널 교체 
 //				startGame();
 //			}
+//			
 //		});
+		
 		
 		this.add(panel);
 		repaint();
