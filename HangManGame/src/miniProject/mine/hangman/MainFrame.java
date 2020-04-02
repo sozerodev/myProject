@@ -24,6 +24,9 @@ import javax.swing.UIManager;
 import miniProject.mine.demo.PlayPanel;
 
 public class MainFrame extends JFrame {
+	public static JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
+	public static String userName;
+	
 	private JPanel panel;
 	private boolean check;
 	private JButton btnStart; // startGame()메소드를 사용하기위해 필드변수로.
@@ -32,6 +35,7 @@ public class MainFrame extends JFrame {
 		super("Save the Hang Man");
 		setBounds(0, 0, 780, 650);
 		setLocationRelativeTo(null); // 가운데 정렬 
+		setResizable(false); // 창 크기조절 못하도록 
 		
 		// -----------
 		
@@ -44,7 +48,7 @@ public class MainFrame extends JFrame {
 		panel.setLayout(null);
 		
 
-		JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
+//		JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
 		userNameInput.setText(">>Name Your Self<<");
 		userNameInput.setForeground(Color.LIGHT_GRAY);
 		userNameInput.setBackground(Color.RED);
@@ -78,10 +82,10 @@ public class MainFrame extends JFrame {
 //				if (check == false) {
 					JOptionPane.showMessageDialog(null, msg, "Name yourself!!", JOptionPane.ERROR_MESSAGE);
 					
-					System.out.println("false인 경우 ");
+//					System.out.println("false인 경우 ");
 				} else { // nameChk가 true인 경우 
 					// 버튼 클릭 시 패널 교체 
-					System.out.println("true인 경우 ");
+//					System.out.println("true인 경우 ");
 					startGame();
 				}
 			}
@@ -124,18 +128,11 @@ public class MainFrame extends JFrame {
 	public void startGame() { // 게임 실행을 위한 패널 교체 메소드 
 		this.remove(panel);
 		
-//		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
-		panel = new miniProject.mine.hangman.PlayPanel();	// PlayPanel로 전환. 
+		// start버튼 클릭했을때 사용자가 userNameInput에 입력한 것을 set해주기
+		userName = userNameInput.getText();		
 		
-//		btnStart.addMouseListener(new MouseAdapter() {
-//			
-//			@Override
-//			public void mouseClicked(MouseEvent e) {
-//				// 마우스 클릭 시 패널 교체 
-//				startGame();
-//			}
-//			
-//		});
+//		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
+		panel = new miniProject.mine.hangman.PlayPanel(userName);	// PlayPanel로 전환. 
 		
 		
 		this.add(panel);

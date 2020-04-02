@@ -20,12 +20,12 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.JOptionPane;
 
-public class mainPanel extends JPanel {
+public class MainPanel extends JPanel {
 	
 	private static final Component mainPanel = null;
 	boolean nameChk = false; // 필드변수이니 false로 초기화되어있을 것 
 	
-	public mainPanel() {
+	public MainPanel() {
 		new PlayMusic("Blues.wav");
 		this.setFont(new Font("Press Start K", Font.PLAIN, 20)); // 폰트 설정 
 		setBounds(0, 0, 780, 650);
