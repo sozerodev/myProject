@@ -22,16 +22,29 @@ import javax.swing.JOptionPane;
 
 public class MainPanel extends JPanel {
 	
-	private static final Component mainPanel = null;
+	public static JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
+	public static String userName;
+	
+	private JPanel panel;
+	private boolean check;
+	private JButton btnStart; // startGame()메소드를 사용하기위해 필드변수로.
+	
+	
+//	private static final Component mainPanel = null;
 	boolean nameChk = false; // 필드변수이니 false로 초기화되어있을 것 
 	
 	public MainPanel() {
-		new PlayMusic("Blues.wav");
-		this.setFont(new Font("Press Start K", Font.PLAIN, 20)); // 폰트 설정 
+
+
+
+//		panel = new JPanel();  
+		setFont(new Font("Press Start K", Font.PLAIN, 20)); // 폰트 설정 
 		setBounds(0, 0, 780, 650);
+//		getContentPane().add(panel);
 		setLayout(null);
 		
-		JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
+
+//		JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
 		userNameInput.setText(">>Name Your Self<<");
 		userNameInput.setForeground(Color.LIGHT_GRAY);
 		userNameInput.setBackground(Color.RED);
@@ -41,14 +54,14 @@ public class MainPanel extends JPanel {
 		userNameInput.addMouseListener(new MouseAdapter() {   // 입력창을 클릭하면 디폴트로 입력된 글자들을 싹 사라지게 해주는 코드 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				nameChk = true;
+//				check = true;
 				userNameInput.setText("");
 			}
 		});
-		
 		add(userNameInput);
 		
-		JButton btnStart = new JButton("PRESS START");
+		btnStart = new JButton("PRESS START");
+
 		btnStart.setForeground(Color.RED);
 		btnStart.setBackground(Color.BLACK);
 		btnStart.setFont(new Font("Press Start K", Font.PLAIN, 26));
@@ -56,33 +69,39 @@ public class MainPanel extends JPanel {
 		
 		JLabel msg = new JLabel("Input your name!");
 		msg.setFont(new Font("Press Start K", Font.BOLD, 25));
-		
-		
-		btnStart.addMouseListener(new MouseAdapter() {
+	
+		btnStart.addActionListener(new ActionListener() {
 			
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				if (nameChk == false) {
-					btnStart.addActionListener(new ActionListener() {
-						
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							JOptionPane.showMessageDialog(null, msg, "Name yourself!!", JOptionPane.ERROR_MESSAGE);
-							
-						}
-					});
-					System.out.println("false인 경우 ");
+			public void actionPerformed(ActionEvent e) {
+				if(userNameInput.getText().equals(">>Name Your Self<<") || userNameInput.getText().equals("")) {
+//				if (check == false) {
+					JOptionPane.showMessageDialog(null, msg, "Name yourself!!", JOptionPane.ERROR_MESSAGE);
+					
+//					System.out.println("false인 경우 ");
 				} else { // nameChk가 true인 경우 
 					// 버튼 클릭 시 패널 교체 
+//					System.out.println("true인 경우 ");
 					new MainFrame().startGame();
-					System.out.println("true인 경우 ");
 				}
 			}
 			
 		});
+		
 		add(btnStart);
 		
-		JButton btnNewButton = new JButton("RANK");
+//		JButton btnNewButton = new JButton("RANK");
+//		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
+//		btnNewButton.setBackground(new Color(0, 0, 0));
+//		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
+//		btnNewButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btnNewButton.setBounds(594, 213, 128, 40);
+//		panel.add(btnNewButton);
+		
+		JButton btnNewButton = new JButton("Go back to Main");
 		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
@@ -90,8 +109,18 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(594, 213, 128, 40);
+		btnNewButton.setBounds(500, 199, 274, 54);
 		add(btnNewButton);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 메인으로 가는 버튼 
+				// new GameSelectView();  
+				
+			}
+		});
 		
 
 		
@@ -102,6 +131,12 @@ public class MainPanel extends JPanel {
 		add(lblNewLabel);
 		Image myImg = new ImageIcon("./img/BackGroundImg.png").getImage().getScaledInstance(780, 650, 0); // 상대경로 설정하기 
 		lblNewLabel.setIcon(new ImageIcon(myImg));
+		
+		
+//		add(panel);
+		setVisible(true);
+		new PlayMusic("Blues.wav"); // 음악 재생 
+		
 	}
 	
 	

@@ -21,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-import miniProject.mine.demo.PlayPanel;
 
 public class MainFrame extends JFrame {
 	public static JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
@@ -94,18 +93,7 @@ public class MainFrame extends JFrame {
 		
 		panel.add(btnStart);
 		
-//		JButton btnNewButton = new JButton("RANK");
-//		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
-//		btnNewButton.setBackground(new Color(0, 0, 0));
-//		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
-//		btnNewButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-//		btnNewButton.setBounds(594, 213, 128, 40);
-//		panel.add(btnNewButton);
-		
-		JButton btnNewButton = new JButton("Go back to Main");
+		JButton btnNewButton = new JButton("RANK");
 		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
@@ -113,18 +101,8 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(500, 199, 274, 54);
+		btnNewButton.setBounds(594, 213, 128, 40);
 		panel.add(btnNewButton);
-		
-		btnNewButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// 메인으로 가는 버튼 
-				// new GameSelectView();  
-				
-			}
-		});
 		
 
 		
@@ -153,7 +131,7 @@ public class MainFrame extends JFrame {
 		userName = userNameInput.getText();		
 		
 //		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
-		panel = new miniProject.mine.hangman.PlayPanel(userName);	// PlayPanel로 전환. 
+//		panel = new game.hang.PlayPanel(userName);	// PlayPanel로 전환. 
 		
 		
 		this.add(panel);
