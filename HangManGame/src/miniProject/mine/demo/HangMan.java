@@ -61,7 +61,7 @@ public class HangMan {
 	 */
 	private void initialize() {
 		frame = new JFrame("Save the Hang Man!!");
-		frame.setBounds(100, 100, 780, 650);
+		frame.setBounds(0, 0, 780, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -107,7 +107,7 @@ public class HangMan {
 		
 		panel.add(btnStart);
 		
-		JButton btnNewButton = new JButton("RANK");
+		JButton btnNewButton = new JButton("Go back to Main");
 		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
@@ -115,7 +115,7 @@ public class HangMan {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(594, 213, 128, 40);
+		btnNewButton.setBounds(500, 199, 274, 54);
 		panel.add(btnNewButton);
 		
 
@@ -123,10 +123,10 @@ public class HangMan {
 		JLabel lblNewLabel = new JLabel();
 		lblNewLabel.setFont(new Font("Press Start K", Font.PLAIN, 13));
 		lblNewLabel.setForeground(Color.LIGHT_GRAY);
-		lblNewLabel.setBounds(0, 0, 780, 627);
+		lblNewLabel.setBounds(0, 0, 780, 650);
 		panel.add(lblNewLabel);
 		Image myImg = new ImageIcon("./img/BackGroundImg.png").getImage().getScaledInstance(780, 650, 0); // 상대경로 설정하기 
-		lblNewLabel.setIcon(new ImageIcon(myImg));
+		lblNewLabel.setIcon(new ImageIcon("/Users/SO/Desktop/myProject/HangManGame/img/BackGroundImg.png"));
 		play("POL-evil-throne-short.wav");
 		
 	}

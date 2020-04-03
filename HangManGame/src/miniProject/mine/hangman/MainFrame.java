@@ -94,7 +94,18 @@ public class MainFrame extends JFrame {
 		
 		panel.add(btnStart);
 		
-		JButton btnNewButton = new JButton("RANK");
+//		JButton btnNewButton = new JButton("RANK");
+//		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
+//		btnNewButton.setBackground(new Color(0, 0, 0));
+//		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
+//		btnNewButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//			}
+//		});
+//		btnNewButton.setBounds(594, 213, 128, 40);
+//		panel.add(btnNewButton);
+		
+		JButton btnNewButton = new JButton("Go back to Main");
 		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
@@ -102,8 +113,18 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(594, 213, 128, 40);
+		btnNewButton.setBounds(500, 199, 274, 54);
 		panel.add(btnNewButton);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 메인으로 가는 버튼 
+				// new GameSelectView();  
+				
+			}
+		});
 		
 
 		

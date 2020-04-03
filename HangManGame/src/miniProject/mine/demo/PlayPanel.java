@@ -63,11 +63,16 @@ public class PlayPanel {
 		
 		// 그림 바뀌는 라벨 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(108, 67, 120, 108);
+		lblNewLabel.setBounds(212, 62, 120, 108);
 		humanPanel.add(lblNewLabel);
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBackground(Color.GREEN);
 		lblNewLabel.setIcon(new ImageIcon("/Users/SO/Desktop/HangManImg/120px-Hangman-0 복사본.png"));
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon("/Users/SO/Desktop/HangManImg/120px-Hangman-0 복사본.png"));
+		btnNewButton_1.setBounds(6, 6, 156, 134);
+		humanPanel.add(btnNewButton_1);
 		
 		JPanel userInputPanel = new JPanel();
 		userInputPanel.setBackground(new Color(0, 0, 204));
