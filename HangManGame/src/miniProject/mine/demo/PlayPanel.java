@@ -63,16 +63,11 @@ public class PlayPanel {
 		
 		// 그림 바뀌는 라벨 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(212, 62, 120, 108);
+		lblNewLabel.setBounds(119, 59, 120, 108);
 		humanPanel.add(lblNewLabel);
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setBackground(Color.GREEN);
 		lblNewLabel.setIcon(new ImageIcon("/Users/SO/Desktop/HangManImg/120px-Hangman-0 복사본.png"));
-		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon("/Users/SO/Desktop/HangManImg/120px-Hangman-0 복사본.png"));
-		btnNewButton_1.setBounds(6, 6, 156, 134);
-		humanPanel.add(btnNewButton_1);
 		
 		JPanel userInputPanel = new JPanel();
 		userInputPanel.setBackground(new Color(0, 0, 204));
@@ -112,7 +107,7 @@ public class PlayPanel {
 		countField = new JTextField();
 		countField.setFont(new Font("Press Start K", Font.PLAIN, 26));
 		countField.setHorizontalAlignment(SwingConstants.CENTER);
-		countField.setText("8");
+		countField.setText("7");
 		countField.setForeground(new Color(255, 51, 0));
 		countField.setBackground(new Color(0, 0, 204));
 		countField.setBounds(258, 70, 82, 55);
@@ -127,7 +122,7 @@ public class PlayPanel {
 		
 		JPanel inputedPanel = new JPanel();
 		inputedPanel.setBackground(new Color(0, 0, 204));
-		inputedPanel.setBounds(6, 338, 743, 254);
+		inputedPanel.setBounds(9, 309, 743, 254);
 		frame.getContentPane().add(inputedPanel);
 		inputedPanel.setLayout(null);
 		
@@ -139,12 +134,12 @@ public class PlayPanel {
 		userHistory.setFont(new Font("Press Start K", Font.BOLD, 28));
 		
 		answeredField = new JTextField();
-		answeredField.setFont(new Font("Press Start K", Font.PLAIN, 21));
+		answeredField.setFont(new Font("Press Start K", Font.PLAIN, 17));
 		answeredField.setHorizontalAlignment(SwingConstants.CENTER);
-		answeredField.setText("nullpointerexception");
+		answeredField.setText("[ㅡ, ㅡ, ㅡ, ㅡ, ㅡ, ㅡ]");
 		answeredField.setForeground(new Color(255, 204, 0));
 		answeredField.setBackground(new Color(0, 0, 204));
-		answeredField.setBounds(248, 25, 489, 90);
+		answeredField.setBounds(247, 72, 490, 90);
 		inputedPanel.add(answeredField);
 		answeredField.setColumns(10);
 		
@@ -159,7 +154,7 @@ public class PlayPanel {
 		missedField.setColumns(10);
 		
 		JLabel countLabel = new JLabel("nn chars");
-		countLabel.setBounds(6, 49, 230, 37);
+		countLabel.setBounds(12, 94, 230, 37);
 		inputedPanel.add(countLabel);
 		countLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		countLabel.setForeground(new Color(255, 204, 0));

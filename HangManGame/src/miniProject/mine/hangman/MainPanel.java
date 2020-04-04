@@ -82,7 +82,7 @@ public class MainPanel extends JPanel {
 				} else { // nameChk가 true인 경우 
 					// 버튼 클릭 시 패널 교체 
 //					System.out.println("true인 경우 ");
-					new MainFrame().startGame();
+//					new MainFrame().startGame();
 				}
 			}
 			

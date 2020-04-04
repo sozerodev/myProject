@@ -22,6 +22,12 @@ import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
 
+/*
+ * @author Soyoung Kim
+ * when 2020-04-05
+ * @version 1.0
+ */
+
 public class MainFrame extends JFrame {
 	public static JFormattedTextField userNameInput = new JFormattedTextField("Name Your Self");
 	public static String userName;
@@ -85,7 +91,9 @@ public class MainFrame extends JFrame {
 				} else { // nameChk가 true인 경우 
 					// 버튼 클릭 시 패널 교체 
 //					System.out.println("true인 경우 ");
-					startGame();
+					dispose();
+//					new PlayFrame(userNameInput.getText());
+					new PlayFrame(userNameInput.getText()).setLocationRelativeTo(null); // 가운데 정렬 ;
 				}
 			}
 			
@@ -93,7 +101,7 @@ public class MainFrame extends JFrame {
 		
 		panel.add(btnStart);
 		
-		JButton btnNewButton = new JButton("RANK");
+		JButton btnNewButton = new JButton("Go back to Main");
 		btnNewButton.setForeground(UIManager.getColor("InternalFrame.borderDarkShadow"));
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Press Start K", Font.PLAIN, 17));
@@ -101,9 +109,20 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(594, 213, 128, 40);
+		btnNewButton.setBounds(500, 199, 274, 54);
 		panel.add(btnNewButton);
 		
+		btnNewButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					dispose();
+//					new GameSelectView(); // 메인화면으로 돌아가기
+					System.exit(0);
+				
+			}
+			
+		});
 
 		
 		JLabel lblNewLabel = new JLabel();
@@ -117,26 +136,26 @@ public class MainFrame extends JFrame {
 		
 		add(panel);
 		setVisible(true);
-		new PlayMusic("Blues.wav"); // 음악 재생 
+//		new PlayMusic("Blues.wav"); // 음악 재생 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 	
 	
 	
-	public void startGame() { // 게임 실행을 위한 패널 교체 메소드 
-		this.remove(panel);
-		
-		// start버튼 클릭했을때 사용자가 userNameInput에 입력한 것을 set해주기
-		userName = userNameInput.getText();		
-		
-//		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
-//		panel = new game.hang.PlayPanel(userName);	// PlayPanel로 전환. 
-		
-		
-		this.add(panel);
-		repaint();
-	}
+//	public void startGame() { // 게임 실행을 위한 패널 교체 메소드 
+//		this.remove(panel);
+//		
+//		// start버튼 클릭했을때 사용자가 userNameInput에 입력한 것을 set해주기
+//		userName = userNameInput.getText();		
+//		
+////		if (check == true)  // 어차피 check가 true인 경우에만 실행되는 메소드니까.
+////		panel = new game.hang.PlayPanel(userName);	// PlayPanel로 전환. 
+//		
+//		
+//		this.add(panel);
+//		repaint();
+//	}
 
 
 }
