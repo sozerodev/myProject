@@ -1,4 +1,4 @@
-package miniProject.mine.hangman;
+package miniProject.mine.run;
 
 import java.io.File;
 
